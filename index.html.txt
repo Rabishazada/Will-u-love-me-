@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Will You Love Me?</title>
+	<style>
+		/* Add some basic styling to make the page look decent */
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		.container {
+			width: 80%;
+			margin: 40px auto;
+			text-align: center;
+		}
+		.picture {
+			width: 100%;
+			height: 300px;
+			background-size: cover;
+			background-position: center;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		.question {
+			font-size: 36px;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+		.options {
+			margin-top: 20px;
+		}
+		.option {
+			width: 100px;
+			height: 50px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin: 10px;
+		}
+		.option:hover {
+			background-color: #3e8e41;
+		}
+		.party {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+			z-index: 1000;
+		}
+		.party .confetti {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100px;
+			height: 100px;
+			background-color: #FF69B4;
+			border-radius: 50%;
+			animation: confetti 2s infinite;
+		}
+		@keyframes confetti {
+			0% {
+				transform: translate(-50%, -50%) scale(1);
+			}
+			50% {
+				transform: translate(-50%, -50%) scale(1.5);
+			}
+			100% {
+				transform: translate(-50%, -50%) scale(1);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="picture" style="background-image: url('https://picsum.photos/200/300')"></div>
+		<div class="question">Will You Love Me?</div>
+		<div class="options">
+			<button class="option" id="yes">Yes</button>
+			<button class="option" id="no" disabled>No</button>
+		</div>
+		<div class="party">
+			<div class="confetti"></div>
+			<div class="confetti" style="top: 30%; left: 30%; background-color: #FFC107;"></div>
+			<div class="confetti" style="top: 70%; left: 70%; background-color: #8BC34A;"></div>
+			<h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 48px;">YAY!</h1>
+		</div>
+	</div>
+	<script>
+		// Add event listener to the yes button
+		document.getElementById('yes').addEventListener('click', function() {
+			// Show the party div
+			document.querySelector('.party').style.display = 'block';
+			// Add a timeout to hide the party div after 2 seconds
+			setTimeout(function() {
+				document.querySelector('.party').style.display = 'none';
+			}, 2000);
+		});
+	</script>
+</body>
+</html>
